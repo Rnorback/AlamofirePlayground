@@ -17,19 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+// Override point for customization after application launch.
         
-        let today = NSCalendar.currentCalendar().startOfDayForDate(NSDate())
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let thisDate = dateFormatter.stringFromDate(today)
-        
-        let params = [
-            "access_token": "CAAF4UEqqlD8BAGw9opTkLGuyLxsOylT5eNlLDaafszZByva9lXZANFNcWEdehJwZANH8idBknKQ9hxMyVfGNY2FSI7WqD1AzRnPzsLAafSU5t6VIdFCdWjmdOAcsNF2ZANbiTW414ZCZCfxIlCIZA3u6olcjEmM4VJcUjTTPCZCltbaZBrApouc6yJDjUIy09988ZD",
-            "fields":"spend,unique_clicks,cost_per_unique_click",
-            "breakdowns":"impression_device,placement",
-            "time_range":"{'since':'2015-10-25','until':'\(thisDate)'}"
-        ]//,"time_increment":"1"]
+//        let today = NSCalendar.currentCalendar().startOfDayForDate(NSDate())
+//        let dateFormatter = NSDateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd"
+//        let thisDate = dateFormatter.stringFromDate(today)
+//        
+//        let params = [
+//            "access_token": "CAAF4UEqqlD8BAGw9opTkLGuyLxsOylT5eNlLDaafszZByva9lXZANFNcWEdehJwZANH8idBknKQ9hxMyVfGNY2FSI7WqD1AzRnPzsLAafSU5t6VIdFCdWjmdOAcsNF2ZANbiTW414ZCZCfxIlCIZA3u6olcjEmM4VJcUjTTPCZCltbaZBrApouc6yJDjUIy09988ZD",
+//            "fields":"spend,unique_clicks,cost_per_unique_click",
+//            "breakdowns":"impression_device,placement",
+//            "time_range":"{'since':'2015-10-25','until':'\(thisDate)'}"
+//        ]//,"time_increment":"1"]
         //let urlString = "https://graph.facebook.com/v2.5/act_105821126431030/insights"//Account level: returns insights about account
         //let urlString = "https://graph.facebook.com/v2.5/act_105821126431030/insights"//Account level: get devices info "fields":"spend,unique_clicks,cost_per_unique_click","breakdowns":"impression_device,placement",
         //  "breakdowns":"region"
@@ -39,8 +39,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //  "breakdowns":"region"
         //let urlString = "https://graph.facebook.com/v2.5/6027228070972/adsets" //Campaign ID, get's adsets
         //let urlString = "https://graph.facebook.com/v2.5/6027228072172" //Adset ID get
-        let urlString = "https://graph.facebook.com/v2.5/6027228072172/insights" //Adset ID: get devices info for adsets  "fields":"spend,unique_clicks,cost_per_unique_click","breakdowns":"impression_device,placement",
+        //let urlString = "https://graph.facebook.com/v2.5/6027228072172/insights" //Adset ID: get devices info for adsets  "fields":"spend,unique_clicks,cost_per_unique_click","breakdowns":"impression_device,placement",
         //  "breakdowns":"region"
+
+//        Alamofire.request(.GET, urlString, parameters: params)
+//            .validate()
+//            .responseJSON { (request, response, result) in
+//                switch result {
+//                case .Success(let responseObject):
+//                    let json = JSON(responseObject)
+//                    print(json)
+//                case .Failure(let data, let error as NSError):
+//                    print("URL request didn't work \(error.localizedDescription)")
+//                default:
+//                    break
+//                }
+//        }
+        
+        
+        
+        let urlString = "https://adwords.google.com/api/adwords/cm/v201509/CampaignService"
+        
         
         Alamofire.request(.GET, urlString, parameters: params)
             .validate()
