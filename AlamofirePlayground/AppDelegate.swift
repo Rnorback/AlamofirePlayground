@@ -56,24 +56,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                }
 //        }
         
-        
-        
+        let params:[String : AnyObject] = [:]
+        let headers = [
+            "Authorization": "Bearer ya29.QwKjT4PTVXYNuic6sCepz0IMbAkMQU6VK4pRYkrPNUggiE3vkSLeNN7IIYUGfVVRFvit51c"]
         let urlString = "https://adwords.google.com/api/adwords/cm/v201509/CampaignService"
         
-        
-        Alamofire.request(.GET, urlString, parameters: params)
+        Alamofire.request(.GET, urlString, parameters: params, headers: headers)
             .validate()
             .responseJSON { (request, response, result) in
                 switch result {
                 case .Success(let responseObject):
-                    let json = JSON(responseObject)
-                    print(json)
+                    print(responseObject)
                 case .Failure(let data, let error as NSError):
                     print("URL request didn't work \(error.localizedDescription)")
                 default:
                     break
-                }
+            }
         }
+        
         
         
         
